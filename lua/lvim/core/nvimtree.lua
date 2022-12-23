@@ -41,7 +41,8 @@ function M.config()
         timeout = 200,
       },
       view = {
-        width = 30,
+        width = 70,
+        height = 30,
         hide_root_folder = false,
         side = "left",
         mappings = {

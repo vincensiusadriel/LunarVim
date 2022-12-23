@@ -58,7 +58,7 @@ return {
       },
     },
     virtual_text = true,
-    update_in_insert = false,
+    update_in_insert = true,
     underline = true,
     severity_sort = true,
     float = {
@@ -100,6 +100,12 @@ return {
       ["gr"] = { vim.lsp.buf.references, "Goto references" },
       ["gI"] = { vim.lsp.buf.implementation, "Goto Implementation" },
       ["gs"] = { vim.lsp.buf.signature_help, "show signature help" },
+      ["gp"] = {
+        function()
+          require("lvim.lsp.peek").Peek "definition"
+        end,
+        "Peek definition",
+      },
       ["gl"] = {
         function()
           local config = lvim.lsp.diagnostics.float
@@ -109,7 +115,9 @@ return {
         "Show line diagnostics",
       },
     },
-    insert_mode = {},
+    insert_mode = {
+      ["<C-h>"] = { vim.lsp.buf.signature_help, "show signature help" },
+    },
     visual_mode = {},
   },
   buffer_options = {
